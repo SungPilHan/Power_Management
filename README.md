@@ -120,7 +120,8 @@ def off(self):
 …
 </pre>
 * 위 방법으로 안될 경우
-* <pre>
+* 
+<pre>
 time.sleep(1)
 result = subprocess.Popen(off_cmd).wait()
 self.check_result(result)
