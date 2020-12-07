@@ -8,22 +8,18 @@ USB power on/off
 5. 시스템 출력
 6. 시스템 오류 시 확인 사항
 >
+>
 
 1. 시스템 개요
 * Master Host가 이더넷을 통해 Slave Host IP로 curl 명령을 수행하면 Slave Host가 자신의 USB Port 전원을 On/Off 하는 시스템
 	- Master Host : 명령을 주는 개체로 Mac이나 Linux가 탑재된 컴퓨터
 	- Slave Host : 명령을 받는 개체로 Linux가 설치된 라즈베리파이
 
-
 2. 시스템 설치
-
 * 시스템 설치 환경
 	- H/W : Raspberry Pi 2 Model B
 	- OS : RASPBIAN
-
-
 * Pre-install
-
 >1. libusb-dev
 * USB 전원 제어를 위한 라이브러리 패키지
 	<pre>
@@ -39,7 +35,6 @@ USB power on/off
 
 >3. install
 * usb\_on\_off\_server.py 파일을 다운로드
-
 
 >4. 설치 후 코드 수정 사항
 * 다운 받은 파이썬 코드 상단의 변수를 수정
@@ -64,8 +59,7 @@ USB power on/off
 4. 시스템 입력
 * curl 명령어 사용
 	<pre>
-	$ curl -X GET http://<strong>IP</strong>:<strong>Port</strong>/<strong>수행할 행동<strong>
-	</pre>
+	$ curl -X GET http://<strong>IP</strong>:<strong>Port</strong>/<strong>수행할 행동<strong></pre>
 	* HTTP의 GET 요청을 사용하여 통신
 	* Slave Host의 IP와 PORT를 명시한 URL 사용
 	* URL의 자원 Path부분에 수행할 행동을 명시
@@ -75,13 +69,10 @@ USB power on/off
 		* 그 외 입력 시 수행 실패
 
 	<pre>
-	ex) $ curl –X GET http://172.30.1.39:8000/off
-	</pre>
+	ex) $ curl –X GET http://192.168.1.1:8000/off</pre>
 	* -X GET : GET 요청 사용
-	* http://172.30.1.39:8000/ : IP와 Port를 명시한 URL
+	* http://192.168.1.1:8000/ : IP와 Port를 명시한 URL
 	* off : 수행할 행동 명시 - 전원을 끔
-		
-
 
 5. 시스템 출력
 * curl 기능 중에 HTTP 프로토콜을 사용하고 그 중에서도 GET 요청을 사용하기 때문에 서버로 부터 응답을 받음
